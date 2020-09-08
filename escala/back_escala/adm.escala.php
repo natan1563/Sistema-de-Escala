@@ -12,6 +12,6 @@
 		}
 
 		public function __get($attr){
-			$this->attr;
+			return $this->$attr;
 		}
 	}

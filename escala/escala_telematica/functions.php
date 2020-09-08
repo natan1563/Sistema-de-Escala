@@ -27,16 +27,15 @@
 	$year = 2020;
 	$form = 1;
 
-	while($count <= 31){ ?>	
-			<option value="<?=$count?>" name="dia"><?php 
-				if($count < 10){
-					echo '0'.$count;
-				}else{
-					echo $count;
-				}
-				?>
-				
-			</option> 
+	while($count <= 31){ 
+		
+		if($count < 10){
+			$count = '0'.$count;
+		}
+
+		?>	
+		
+		<option value="<?=$count?>" name="dia"><?=$count;?></option> 
 
 			<?php
 				$count++;
@@ -47,7 +46,12 @@
 	<span class="h5">Mês</span>
 	<select name="<?=$mName?>">
 		<?php 
-		while ($month <= 12) { ?>
+		while ($month <= 12) { 
+
+			if($month < 10){
+				$month = '0'.$month;
+			}
+			?>
 			<option value="<?=$month?>" name="mes"><?=$month?></option> <?php
 			$month++;
 			if($form <= 12){

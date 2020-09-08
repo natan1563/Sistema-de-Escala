@@ -10,6 +10,7 @@
 		public function conectar(){
 			try{
 				$conn = new PDO("mysql:host=$this->host;dbname=$this->dbname;", "$this->user", "$this->pass");
+				return $conn;
 			}catch(PDOException $e){
 				echo '<p style="color: red;">'.$e->getMessage().'</p>';
 			}

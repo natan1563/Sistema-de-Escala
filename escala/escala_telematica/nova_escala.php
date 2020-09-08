@@ -1,4 +1,5 @@
-<?php require 'functions.php'; 
+<?php 
+require 'functions.php'; 
 
 echo '<pre>';
 print_r($_GET);
@@ -27,7 +28,7 @@ echo '</pre>';
 
 	<p class="h2 text-center display-4 font-weight-bold"><?= date('d/m/Y'); ?></p>
 <!-- controll.php?input_escala=true -->
-	<form action="#" method="GET" class="justify-content-center">
+	<form action="controll.php" method="GET" class="justify-content-center">
 		<label>Nova Escala</label>
 		<input type="text" name="sInput" placeholder="Segunda" class="text-center form-control mb-3">
 		<span class="h5 m-3">Dia: <?php select(1, 'primeirodia', 'primeiromes', 'primeiroano'); ?></span><br>
@@ -39,7 +40,7 @@ echo '</pre>';
 		<span class="h5 m-3">Dia: <?php select(4, 'quartodia', 'quartomes', 'quartoano'); ?></span><br>
 		<input type="text" name="seInput" placeholder="Sexta" class="text-center form-control mb-3">
 		<span class="h5 m-3">Dia: <?php select(5, 'quintodia', 'quintomes', 'quintoano'); ?></span><br>
-		<button style="width: 100%; height: 70px;" class="btn-danger center">Confirmar</button>
+		<button style="width: 100%; height: 70px;" class="btn-danger center" name="btn-cadastro">Confirmar</button>
 	</form>
 
 </body>

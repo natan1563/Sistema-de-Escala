@@ -27,12 +27,12 @@
 			
 		}
 
-		public function select(){
-			$query = "SELECT * FROM escala";
-			
-			$stmt = $this->conn->prepare("SELECT * FROM escala");
-
+		public function select(Conexao $conn){
+			$conn = $conn->conectar();
+			$query = 'SELECT * FROM escala';
+			$stmt = $conn->prepare($query);
 			$stmt->execute();
+			return $stmt->fetchAll(PDO::FETCH_ASSOC);	
 		}
 		public function atualiza(){
 

@@ -23,13 +23,51 @@ require 'controll.php';
 		</a>
 	</ul>
 
-	<p class="h2 text-center display-4 font-weight-bold"><?= date('d/m/Y'); ?></p>
+	<p class="h2 text-center display-4 font-weight-bold p-5" style="margin-bottom: 3%;"><?= date('d/m/Y'); ?></p>
+	
+	<div class="bg-warning font-weight-bold text-center">
+		<p class="list-inline-item text-center" style="width: 18%; margin: 10px 10px 10px -20px; border-right: 2px solid #111">
+			Segunda
+		</p>
 
+		<p class="list-inline-item text-center" style="width: 18%;border-right: 2px solid #111 ">
+			Terça
+		</p>
+
+		<p class="list-inline-item text-center" style="width: 18%;border-right: 2px solid #111">
+			Quarta
+		</p>
+
+		<p class="list-inline-item text-center" style="width: 18%; border-right: 2px solid #111; ">
+			Quinta
+		</p>
+
+		<p class="list-inline-item text-center" style="width: 18%;margin: 10px -20px 10px 10px;">
+			Sexta
+		</p>
+	</div>
+	<div class="bg-warning font-weight-bold text-center list-inline">
 	<?php
+	$count = 0;
+
+
 		foreach ($dados as $chave => $valor) {
-			echo $valor;
-		}
+			if($count < 5){
+				$data = explode('-', $valor['data']);
+				?>
+				<span class="">
+				<?php	
+				echo '<i class="list-inline">'.$valor['nome'].' Data: '.$data[2].'/'.$data[1].'/'.$data[0].'</i>';
+				?>
+				</span>
+				<?php
+				$count++;
+
+			}
+
+		}	
 	
 	?>
+	</div>
 </body>
 </html>

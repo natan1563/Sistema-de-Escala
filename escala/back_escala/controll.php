@@ -3,8 +3,10 @@ require '../../back_escala/conexao.php';
 require '../../back_escala/adm.escala.php';
 require '../../back_escala/controle.in.banco.php';
 if(isset($control) && $control == 'query'){
-	$dados = new Acoes();
-	$dados->select();
+	$conn = new Conexao();
+	$dado = new Acoes();
+	
+	$dados = $dado->select($conn);
 }
 
 if(isset($_GET['btn-cadastro'])){

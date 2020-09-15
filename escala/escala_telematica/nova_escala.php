@@ -9,8 +9,11 @@
 		<div class="w-100 p-1 bg-danger">
 			<h1 class=" text-light text-center">Erro ao inserir :( </h1>
 		</div>
-<?php }
-?>
+<?php }else if(isset($_GET['insere']) and $_GET['insere'] == 'null'){?>
+		<div class="w-100 p-1 bg-danger">
+			<h1 class=" text-light text-center">Por favor preencha todos os campos </h1>
+		</div>
+<?php } ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

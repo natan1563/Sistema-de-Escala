@@ -35,7 +35,7 @@ if(isset($_GET['btn-cadastro'])){
 
 		
 	}else{
-		echo 'Os campos não podem ficar vazios';
+		header('Location: nova_escala.php?insere=null');
 	}
 }
 

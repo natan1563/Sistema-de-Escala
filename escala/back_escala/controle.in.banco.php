@@ -29,7 +29,7 @@
 
 		public function select(Conexao $conn){
 			$conn = $conn->conectar();
-			$query = 'SELECT * FROM escala';
+			$query = 'SELECT * FROM escala ORDER BY id ASC';
 			$stmt = $conn->prepare($query);
 			$stmt->execute();
 			return $stmt->fetchAll(PDO::FETCH_ASSOC);	

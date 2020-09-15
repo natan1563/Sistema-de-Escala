@@ -1,27 +1,33 @@
 <?php 
-require 'functions.php'; 
+	require 'functions.php'; 
 
-echo '<pre>';
-print_r($_GET);
-echo '</pre>';
+	if(isset($_GET['insere']) and $_GET['insere'] == 'true'){?>
+			<div class="w-100 p-1 bg-success">
+				<h1 class=" text-light text-center">Inserido com sucesso!</h1>
+			</div>
+<?php }else if(isset($_GET['insere']) and $_GET['insere'] == 'false'){?> 
+		<div class="w-100 p-1 bg-danger">
+			<h1 class=" text-light text-center">Erro ao inserir :( </h1>
+		</div>
+<?php }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 	<title>Escala da telemática</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-	<h1 class="text-center display-3 font-italic">TelemáGica</h1>
+	<h1 class="text-center display-3 font-weight-bold text-primary" style="text-shadow: 2px 2px #191970;">TeleMágica</h1>
 
 	<ul class="list-inline text-center" style="width: 100%; margin-top: 20px;">
-		<a class="list-inline-item bg-warning text-light font-weight-bold" style="padding: 5px 13%;">
+		<a href="index.php" class="list-inline-item bg-warning text-light font-weight-bold" style="padding: 5px 13%; margin: 2% 0;">
 			Escala
 		</a>
-		<a class="list-inline-item bg-warning text-light font-weight-bold" href="nova_escala.php" style="padding: 5px 13%;">
+		<a class="list-inline-item bg-warning text-light font-weight-bold" href="nova_escala.php" style="padding: 5px 13%; margin: 2% 0;">
 			Nova Escala
 		</a>
-		<a class="list-inline-item bg-warning text-light font-weight-bold" style="padding: 5px 13%;">
+		<a class="list-inline-item bg-warning text-light font-weight-bold" style="padding: 5px 13%; margin: 2% 0;">
 			Alterar Escala
 		</a>
 	</ul>

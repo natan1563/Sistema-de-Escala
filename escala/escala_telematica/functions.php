@@ -1,7 +1,8 @@
 
-<?php function select($day, $dName, $mName, $yName){ ?>
+<?php 
 
-<select name="<?=$dName?>">
+function select($day, $dName, $mName, $yName){ ?>
+	<select name="<?=$dName?>">
 
 	<?php
 
@@ -67,8 +68,30 @@
 			<option value="<?=$year?>" name="ano"><?=$year?></option> <?php
 			$year++;
 		} 
-		?></select><br>
+		?></select><br><?php } 
 
-<?php } ?>
+function insereDados($nomes, $idia, $imes, $iano){
+		$insere_escala = new InsereEscala();
+		//setando os inputs do primeiro dia
+		$insere_escala->__set('input', $nomes);
+		$insere_escala->__set('dia', $idia);
+		$insere_escala->__set('mes', $imes);
+		$insere_escala->__set('ano', $iano);
+		//pegando os dados inputados
+		$input = $insere_escala->__get('input');
+		$dia = $insere_escala->__get('dia');
+		$mes = $insere_escala->__get('mes');
+		$ano = $insere_escala->__get('ano');
+
+		//instancia das ações e da conexao
+		$conn = new Conexao();
+
+		$action = new Acoes();
+		$action->controlador($conn, $input, $dia, $mes, $ano);
+		$action->insere();
+}		
+?>
+
+
 
 

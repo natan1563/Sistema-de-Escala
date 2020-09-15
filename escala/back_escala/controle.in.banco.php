@@ -9,7 +9,7 @@
 		private $mes;
 		private $ano;
 
-		public function __construct(Conexao $conn,  $input,  $dia,  $mes,  $ano){
+		public function controlador(Conexao $conn,  $input,  $dia,  $mes,  $ano){
 			$this->conn = $conn->conectar();
 			$this->input = $input;
 			$this->dia = $dia;
@@ -18,17 +18,22 @@
 		}
 
 		public function insere(){
-			$query = "INSERT INTO escala(nome, data)VALUES(:nome, :data)";
-			$stmt = $this->conn->prepare($query); 
-			$stmt->bindValue(':nome', $this->input);
-			$stmt->bindValue(':data', $this->dia.'/'.$this->mes.'/'.$this->ano);
-			$stmt->execute();
+			$query = 'INSERT INTO escala(nome, data) VALUES(:nome, :data)';
+			$stmt = $this->conn->prepare($query);
+			$data = $this->ano.'-'.$this->mes.'-'.$this->dia;
+			$stmt->bindValue(':nome', $this->input); 
+			$stmt->bindValue(':data', $data); 
+			return $stmt->execute();
+			
 		}
 
 		public function select(){
+			$query = "SELECT * FROM escala";
+			
+			$stmt = $this->conn->prepare("SELECT * FROM escala");
 
+			$stmt->execute();
 		}
-
 		public function atualiza(){
 
 		}

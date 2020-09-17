@@ -30,7 +30,7 @@ require 'controll.php';
 	</ul>
 
 	<p class="h2 text-center display-4 font-weight-bold p-5 align-items-cente" style="margin-bottom: 3%;"><?= date('d/m/Y'); ?></p>
-	<
+	<h1 class="text-center text-danger font-weight-bold">Alterar Escala</h1>
 	<div class="bg-warning font-weight-bold row pt-3 mb-3">
 		<p class="list-inline-item text-center col">
 			Segunda
@@ -55,6 +55,7 @@ require 'controll.php';
 	<?php
 	$count = 0;
 	$lengCount = 1;
+	$ids = '';
 	?>
 			<?php	
 				foreach ($dados as $chave => $valor){
@@ -69,23 +70,33 @@ require 'controll.php';
 							?>
 							
 							<?php	
-							echo '<p class="col text-light ">'.$valor['nome'].'<br> Data: '.$data[2].'/'.$data[1].'/'.$data[0].'</p>';
+						
+							echo '<a class="col text-light pb-3">'.$valor['nome'].'<br> Data: '.$data[2].'/'.$data[1].'/'.$data[0].'</a>';
+
 							?>
 							
 							<?php
 							
-							$lengCount++;
-							if($lengCount > 5){
-								$count++;
-								$lengCount = 1;
-								?> </div> <?php
+							if($lengCount < 5){
+								$ids .= $valor['id'].'-';
+							}else{
+								$ids .= $valor['id'];
 							}
 							
-							if($count >= 5){
-								echo '<p mb-3></p>';
-								$count = 0;
+							$lengCount++;
+							
+							if($lengCount > 5){ 
+								?>
+								</div>
+								<div class="text-center text-danger">
+								<a href="altera_escala.php?ids=<?=$ids?>" class="text-primary text-decoration-none"style="width: 100%; text-align: center;">Alterar</a>
+								</div>
+								<?php
+								$ids = '';
+								$lengCount = 1;
+								?>  <?php
 							}
-					//	}	
+							
 							
 					}
 				

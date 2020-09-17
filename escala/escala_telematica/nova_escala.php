@@ -24,13 +24,13 @@
 	<h1 class="text-center display-3 font-weight-bold text-primary" style="text-shadow: 2px 2px #191970;">TeleMágica</h1>
 
 	<ul class="list-inline text-center" style="width: 100%; margin-top: 20px;">
-		<a href="index.php" class="list-inline-item bg-warning text-light font-weight-bold" style="padding: 5px 13%; margin: 2% 0;">
+		<a href="index.php" class="list-inline-item bg-warning text-light font-weight-bold text-decoration-none" style="padding: 5px 13%; margin: 2% 0;">
 			Escala
 		</a>
-		<a class="list-inline-item bg-warning text-light font-weight-bold" href="nova_escala.php" style="padding: 5px 13%; margin: 2% 0;">
+		<a class="list-inline-item bg-warning text-light font-weight-bold text-decoration-none" href="nova_escala.php" style="padding: 5px 13%; margin: 2% 0;">
 			Nova Escala
 		</a>
-		<a class="list-inline-item bg-warning text-light font-weight-bold" style="padding: 5px 13%; margin: 2% 0;">
+		<a class="list-inline-item bg-warning text-light font-weight-bold text-decoration-none" style="padding: 5px 13%; margin: 2% 0;">
 			Alterar Escala
 		</a>
 	</ul>

@@ -24,7 +24,6 @@
 			$stmt->bindValue(':nome', $this->input); 
 			$stmt->bindValue(':data', $data); 
 			return $stmt->execute();
-			
 		}
 
 		public function select(Conexao $conn){
@@ -34,7 +33,18 @@
 			$stmt->execute();
 			return $stmt->fetchAll(PDO::FETCH_ASSOC);	
 		}
-		public function atualiza(){
+
+		public function atualiza(Conexao $conn, $id, $input, $data, $obs = ''){
+			$conn = $conn->conectar();
+			$data = explode('/', $data);
+			$data = $data[2].'-'.$data[1].'-'.$data[0];
+			$query = "UPDATE escala SET nome = ?, data = ?, obs = ? WHERE id = ?";
+			$stmt = $conn->prepare($query);
+			$stmt->bindValue(1, $input);
+			$stmt->bindValue(2, $data);
+			$stmt->bindValue(3, $obs);
+			$stmt->bindValue(4, $id);
+			return $stmt->execute();
 
 		}
 

@@ -1,7 +1,20 @@
 <?php 
 $control = 'query';
 require 'controll.php';
-?>
+
+if(isset($_GET['alterado']) and $_GET['alterado'] == 'true'){?>
+			<div class="w-100 p-1 bg-success">
+				<h1 class=" text-light text-center">Atualizado :)<h1>
+			</div>
+<?php }else if(isset($_GET['alterado']) and $_GET['alterado'] == 'false'){?> 
+		<div class="w-100 p-1 bg-danger">
+			<h1 class=" text-light text-center">Erro ao atualizar :( </h1>
+		</div>
+<?php }else if(isset($_GET['alterado']) and $_GET['alterado'] == 'null'){?>
+		<div class="w-100 p-1 bg-danger">
+			<h1 class=" text-light text-center">Por favor preencha os campos </h1>
+		</div>
+<?php } ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,13 +31,13 @@ require 'controll.php';
 	<h1 class="text-center display-3 font-weight-bold text-primary" style="text-shadow: 2px 2px #191970;">TeleMágica</h1>
 
 	<ul class="list-inline text-center" style="width: 100%; margin-top: 20px;">
-		<a href="index.php" class="list-inline-item bg-warning text-light font-weight-bold text-decoration-none" style="padding: 5px 13%; margin: 2% 0;">
+		<a href="index.php" class="rounded list-inline-item bg-warning text-light font-weight-bold text-decoration-none" style="padding: 5px 13%; margin: 2% 0;">
 			Escala
 		</a>
-		<a class="list-inline-item bg-warning text-light font-weight-bold text-decoration-none" href="nova_escala.php" style="padding: 5px 13%; margin: 2% 0;">
+		<a class="rounded list-inline-item bg-warning text-light font-weight-bold text-decoration-none" href="nova_escala.php" style="padding: 5px 13%; margin: 2% 0;">
 			Nova Escala
 		</a>
-		<a class="list-inline-item bg-warning text-light font-weight-bold text-decoration-none" style="padding: 5px 13%; margin: 2% 0;">
+		<a class=" roundedlist-inline-item bg-warning text-light font-weight-bold text-decoration-none" style="padding: 5px 13%; margin: 2% 0;">
 			Alterar Escala
 		</a>
 	</ul>
@@ -55,53 +68,47 @@ require 'controll.php';
 	<?php
 	$count = 0;
 	$lengCount = 1;
-	$ids = '';
+
 	?>
 			<?php	
 				foreach ($dados as $chave => $valor){
 					
 					if($lengCount == 1){?>
-					<div class="bg-success font-weight-bold text-center row" style="border-top: 4px solid white; padding-top: 20px;">
 
-					<?php } ?>
-				
-			<?php			//if($count < 5 and $lengCount < 25){	
+					<?php } ?> 
+
+						<?php		
 							$data = explode('-', $valor['data']);
-							?>
-							
-							<?php	
-						
-							echo '<a class="col text-light pb-3">'.$valor['nome'].'<br> Data: '.$data[2].'/'.$data[1].'/'.$data[0].'</a>';
-
-							?>
-							
+						?>
+						<form action="controll.php" method="GET" class="justify-content-center">
+							<label class="font-weight-bold m-1"><u>Alterar Escala</u></label>
+							<input type="text" name="input" value="<?=$valor['nome']; ?>"placeholder="Segunda" class="text-center form-control mb-3">
+							<span class="h5 m-3">Dia: 
+								<input class="text-center p-1" type="text" name="data" value="<?=$data[2].'/'.$data[1].'/'.$data[0];?>"> 
+								<input class="text-center p-1" type="text" name="obs" placeholder="Observação">
+								<input type="hidden" name="id" value="<?=$valor['id'];?>" >
+								<button name='att' class="text-center btn-primary p-1 rounded text-decoration-none">Alterar</button>
+							</span><br><br>
+							</form>
 							<?php
 							
-							if($lengCount < 5){
-								$ids .= $valor['id'].'-';
-							}else{
-								$ids .= $valor['id'];
-							}
+							
 							
 							$lengCount++;
 							
 							if($lengCount > 5){ 
 								?>
-								</div>
+								
 								<div class="text-center text-danger">
-								<a href="altera_escala.php?ids=<?=$ids?>" class="text-primary text-decoration-none"style="width: 100%; text-align: center;">Alterar</a>
+								
 								</div>
 								<?php
 								$ids = '';
 								$lengCount = 1;
 								?>  <?php
 							}
-							
-							
-					}
-				
-
-					
+									
+					}				
 			
 			?>
 </body>

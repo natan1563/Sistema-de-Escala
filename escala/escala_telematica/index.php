@@ -18,18 +18,18 @@ require 'controll.php';
 	<h1 class="text-center display-3 font-weight-bold text-primary" style="text-shadow: 2px 2px #191970;">TeleMágica</h1>
 
 	<ul class="list-inline text-center" style="width: 100%; margin-top: 20px;">
-		<a href="index.php" class="list-inline-item bg-warning text-light font-weight-bold text-decoration-none" style="padding: 5px 13%; margin: 2% 0;">
+		<a class="rounded list-inline-item bg-warning text-light font-weight-bold text-decoration-none" style="padding: 5px 13%; margin: 2% 0;">
 			Escala
 		</a>
-		<a class="list-inline-item bg-warning text-light font-weight-bold text-decoration-none" href="nova_escala.php" style="padding: 5px 13%; margin: 2% 0;">
+		<a class="rounded list-inline-item bg-warning text-light font-weight-bold text-decoration-none" href="nova_escala.php" style="padding: 5px 13%; margin: 2% 0;">
 			Nova Escala
 		</a>
-		<a class="list-inline-item bg-warning text-light font-weight-bold text-decoration-none" style="padding: 5px 13%; margin: 2% 0;">
+		<a class="roundedlist-inline-item bg-warning text-light font-weight-bold text-decoration-none" href="altera_escala.php" style="padding: 5px 13%; margin: 2% 0;">
 			Alterar Escala
 		</a>
 	</ul>
 
-	<p class="h2 text-center display-4 font-weight-bold p-5 align-items-cente" style="margin-bottom: 3%;"><?= date('d/m/Y'); ?></p>
+	<p class="text-center display-3 font-weight-bold pt-2 pb-2 align-items-cente" style="margin-bottom: 3%;"><?= date('d/m/Y'); ?></p>
 	<
 	<div class="bg-warning font-weight-bold row pt-3 mb-3">
 		<p class="list-inline-item text-center col">
@@ -62,19 +62,14 @@ require 'controll.php';
 					if($lengCount == 1){?>
 					<div class="bg-success font-weight-bold text-center row" style="border-top: 4px solid white; padding-top: 20px;">
 
-					<?php } ?>
-				
-			<?php			//if($count < 5 and $lengCount < 25){	
+							<?php } 	
+							
 							$data = explode('-', $valor['data']);
-							?>
 							
-							<?php	
 							echo '<p class="col text-light ">'.$valor['nome'].'<br> Data: '.$data[2].'/'.$data[1].'/'.$data[0].'</p>';
-							?>
-							
-							<?php
 							
 							$lengCount++;
+							
 							if($lengCount > 5){
 								$count++;
 								$lengCount = 1;
@@ -85,7 +80,7 @@ require 'controll.php';
 								echo '<p mb-3></p>';
 								$count = 0;
 							}
-					//	}	
+				
 							
 					}
 				

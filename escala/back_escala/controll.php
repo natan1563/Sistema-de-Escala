@@ -2,11 +2,30 @@
 require '../../back_escala/conexao.php';
 require '../../back_escala/adm.escala.php';
 require '../../back_escala/controle.in.banco.php';
-if(isset($control) && $control == 'query'){
+
+if(isset($_GET['att'])){
+	if(!empty($_GET['input']) and !empty($_GET['data'])){
+			//SELECT
+		$conn = new Conexao();
+		$acao = new Acoes();
+		$dados = $acao->select($conn);
+		
+		//UPDATE
+		$acao = new Acoes();
+		if($acao->atualiza($conn, $_GET['id'], $_GET['input'], $_GET['data'], $_GET['obs'])){
+				header('Location: altera_escala.php?alterado=true');
+			}else{
+				header('Location: altera_escala.php?alterado=false');
+			}	
+	}else{
+		header('Location: altera_escala.php?alterado=null');
+	}
+
+} else if(isset($control) && $control == 'query'){
 	$conn = new Conexao();
 	$dado = new Acoes();
-	
 	$dados = $dado->select($conn);
+
 }
 
 if(isset($_GET['btn-cadastro'])){

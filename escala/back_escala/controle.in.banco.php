@@ -48,8 +48,12 @@
 
 		}
 
-		public function deleta(){
-
+		public function deleta(Conexao $conn, $id){
+			$conn = $conn->conectar();
+			$query = "DELETE FROM escala WHERE id = ?";
+			$stmt = $conn->prepare($query);
+			$stmt->bindValue(1, $id);
+			return $stmt->execute();	
 		}
 
 

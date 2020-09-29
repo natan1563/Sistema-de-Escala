@@ -3,6 +3,16 @@ require '../../back_escala/conexao.php';
 require '../../back_escala/adm.escala.php';
 require '../../back_escala/controle.in.banco.php';
 
+if(isset($_GET['delete']) and $_GET['delete'] == 'true' and isset($_GET['id'])){
+	$conn = new Conexao();
+	$acao = new Acoes();
+
+	if($acao->deleta($conn, $_GET['id'])){
+		header('Location: altera_escala.php?delete=true');
+	}else{
+		header('Location: altera_escala.php?delete=false');		
+	}
+}
 if(isset($_GET['att'])){
 	if(!empty($_GET['input']) and !empty($_GET['data'])){
 			//SELECT
@@ -49,9 +59,6 @@ if(isset($_GET['btn-cadastro'])){
 		}catch(Exception $e){
 			header('Location: nova_escala.php?insere=false');
 		}
-
-		//Segundo Dia
-
 		
 	}else{
 		header('Location: nova_escala.php?insere=null');

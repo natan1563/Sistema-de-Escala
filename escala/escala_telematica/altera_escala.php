@@ -14,6 +14,15 @@ if(isset($_GET['alterado']) and $_GET['alterado'] == 'true'){?>
 		<div class="w-100 p-1 bg-danger">
 			<h1 class=" text-light text-center">Por favor preencha os campos </h1>
 		</div>
+<?php } 
+if(isset($_GET['delete']) and $_GET['delete'] == 'true'){?>
+			<div class="w-100 p-1 bg-success">
+				<h1 class=" text-light text-center">Deletado com Sucesso!! :)<h1>
+			</div>
+<?php }else if(isset($_GET['delete']) and $_GET['delete'] == 'false'){?> 
+		<div class="w-100 p-1 bg-danger">
+			<h1 class=" text-light text-center">Erro ao deletar :( </h1>
+		</div>
 <?php } ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -87,12 +96,13 @@ if(isset($_GET['alterado']) and $_GET['alterado'] == 'true'){?>
 								<input class="text-center p-1" type="text" name="data" value="<?=$data[2].'/'.$data[1].'/'.$data[0];?>"> 
 								<input class="text-center p-1" type="text" name="obs" placeholder="Observação">
 								<input type="hidden" name="id" value="<?=$valor['id'];?>" >
-								<button name='att' class="text-center btn-primary p-1 rounded text-decoration-none">Alterar</button>
+								<button name='att' class="text-center btn-primary p-1 rounded text-decoration-none font-weight-bold">Alterar</button>
+								<a style="box-shadow: 1.5px 1.5px 0 0 #800000;"
+								href="controll.php?id=<?=$valor['id'];?>&delete=true" class="text-center btn-danger p-1 rounded text-decoration-none font-weight-bold" role="button">Remover</a>
+
 							</span><br><br>
 							</form>
-							<?php
-							
-							
+							<?php	
 							
 							$lengCount++;
 							

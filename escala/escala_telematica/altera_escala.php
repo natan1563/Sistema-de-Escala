@@ -46,7 +46,7 @@ if(isset($_GET['delete']) and $_GET['delete'] == 'true'){?>
 		<a class="rounded list-inline-item bg-warning text-light font-weight-bold text-decoration-none" href="nova_escala.php" style="padding: 5px 13%; margin: 2% 0;">
 			Nova Escala
 		</a>
-		<a class=" roundedlist-inline-item bg-warning text-light font-weight-bold text-decoration-none" style="padding: 5px 13%; margin: 2% 0;">
+		<a class="rounded list-inline-item bg-warning text-light font-weight-bold text-decoration-none" style="padding: 5px 13%; margin: 2% 0;">
 			Alterar Escala
 		</a>
 	</ul>
@@ -90,17 +90,18 @@ if(isset($_GET['delete']) and $_GET['delete'] == 'true'){?>
 							$data = explode('-', $valor['data']);
 						?>
 						<form action="controll.php" method="GET" class="justify-content-center">
-							<label class="font-weight-bold m-1"><u>Alterar Escala</u></label>
+							
 							<input type="text" name="input" value="<?=$valor['nome']; ?>"placeholder="Segunda" class="text-center form-control mb-3">
 							<span class="h5 m-3">Dia: 
 								<input class="text-center p-1" type="text" name="data" value="<?=$data[2].'/'.$data[1].'/'.$data[0];?>"> 
 								<input class="text-center p-1" type="text" name="obs" placeholder="Observação">
 								<input type="hidden" name="id" value="<?=$valor['id'];?>" >
 								<button name='att' class="text-center btn-primary p-1 rounded text-decoration-none font-weight-bold">Alterar</button>
-								<a style="box-shadow: 1.5px 1.5px 0 0 #800000;"
-								href="controll.php?id=<?=$valor['id'];?>&delete=true" class="text-center btn-danger p-1 rounded text-decoration-none font-weight-bold" role="button">Remover</a>
+								<a style="box-shadow: 1.5px 1.5px 0 0 #800000;padding: 3.5px"
+								href="controll.php?id=<?=$valor['id'];?>&delete=true" class="text-center btn-danger  rounded text-decoration-none font-weight-bold" role="button">Remover</a>
 
-							</span><br><br>
+							</span><br>
+							<hr>
 							</form>
 							<?php	
 							
@@ -110,7 +111,7 @@ if(isset($_GET['delete']) and $_GET['delete'] == 'true'){?>
 								?>
 								
 								<div class="text-center text-danger">
-								
+								<hr class="bg-dark" style="height: 1px;" />
 								</div>
 								<?php
 								$ids = '';

@@ -24,13 +24,13 @@ require 'controll.php';
 		<a class="rounded list-inline-item bg-warning text-light font-weight-bold text-decoration-none" href="nova_escala.php" style="padding: 5px 13%; margin: 2% 0;">
 			Nova Escala
 		</a>
-		<a class="roundedlist-inline-item bg-warning text-light font-weight-bold text-decoration-none" href="altera_escala.php" style="padding: 5px 13%; margin: 2% 0;">
+		<a class="rounded list-inline-item bg-warning text-light font-weight-bold text-decoration-none" href="altera_escala.php" style="padding: 5px 13%; margin: 2% 0;">
 			Alterar Escala
 		</a>
 	</ul>
 
 	<p class="text-center display-3 font-weight-bold pt-2 pb-2 align-items-cente" style="margin-bottom: 3%;"><?= date('d/m/Y'); ?></p>
-	<
+	
 	<div class="bg-warning font-weight-bold row pt-3 mb-3">
 		<p class="list-inline-item text-center col">
 			Segunda
